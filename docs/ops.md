@@ -148,8 +148,8 @@ more than one process. The image was written, not built, in the authoring enviro
 `.github/workflows/ci.yml` has two jobs. `test` is unchanged (the README's clean-clone order, SQLite).
 `postgres` starts a `postgres:16` service, `pip install -e . psycopg2-binary`, sets
 `DATABASE_URL=postgresql+psycopg2://recovery:recovery@localhost:5432/recovery`, runs the test suite,
-`python -m app.main demo` and `pra doctor`. It is written to be correct but was not exercised locally
-(no Postgres in the authoring environment).
+`python -m app.main demo` and `pra doctor`. It could not be exercised in the authoring environment (no Postgres there); its first run on the
+public repository passed: suite, demo and doctor all green against `postgres:16`.
 
 ## 9. Make targets
 

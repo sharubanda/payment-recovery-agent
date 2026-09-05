@@ -301,7 +301,7 @@ Without `--no-data` each row is followed by its JSON payload (idempotency key, H
 | `PRA_MODE=shadow` + `pra plan` | shadow mode: every stage runs up to the atomic claim, nothing leaves the process, jobs end `shadow` with the would-be payload in the trail; `plan` totals what would have gone out and the expected recovery. This is how a merchant sees the agent's plan for a batch before switching it on |
 | `pra digest [--since 24h] [--post]` | a period summary (events, links, reminders, recovered, expired, cancelled, queue, model usage), optionally posted to a Slack-compatible webhook |
 
-A `Dockerfile` and a Postgres job in CI exist and are written correctly to the best of this build's knowledge, but neither was executed here (no Docker, no Postgres in the build environment); the README says so rather than claiming them.
+The Postgres job in CI runs the full suite, `make demo` and `pra doctor` against a real `postgres:16` service on every push; its first run on the public repository passed (`.github/workflows/ci.yml`, job `postgres`), which is the proof that the database swap is one environment variable. The `Dockerfile` is written but was not built in this build environment.
 
 ## Operator view
 
@@ -333,7 +333,7 @@ A `Dockerfile` and a Postgres job in CI exist and are written correctly to the b
 - [x] The classifier's 100% on its eval set is labelled as a regression floor on the tuning set, not accuracy on production traffic; the receiver and the CSV mapping are labelled as untested against live Razorpay deliveries.
 - [x] The "delivered" rows mean Razorpay accepted a request to send its own link message; the agent's drafted wording is never what the customer reads, and with notifications off (the default) nothing is delivered and the trail says so.
 - [x] Shadow mode, partial-payment offers and the UPI checkout preference rely on Payment Link fields and behaviours that are assumptions (`docs/offers.md`, section 6), each with an audited fallback to a plain link.
-- [x] The Dockerfile and the Postgres CI job were written, not executed, in this build environment.
+- [x] The Postgres CI job has run green on the public repository; the Dockerfile was written, not built, in this build environment.
 - [x] No model call was recorded: `scripts/eval_llm.py` reports "not recorded" and quotes no model accuracy until a cassette exists.
 - [x] Git history audited for secrets. The working tree was scanned for `rzp_test_`/`rzp_live_`/`sk-ant-`-shaped strings and non-empty key assignments; the only hits are the placeholder `sk-ant-` dummies that `tests/test_llm.py` and `scripts/chaos.py` monkeypatch into config (not keys) and the grep command below in this README; no real key exists; `.env` is gitignored and only `.env.example` is tracked. Re-run on the final commit before the repo goes public: `git log -p -- . | grep -nE 'rzp_(test|live)_[A-Za-z0-9]{6,}|sk-ant-'`.
 
@@ -366,7 +366,7 @@ payment-recovery-agent/
 ├── Makefile                     setup / demo / chaos / simulate / eval / insights / serve / test / clean
 ├── requirements.txt             pinned
 ├── pyproject.toml               the `pra` console script; pip install -e .
-├── Dockerfile                   python:3.11-slim, non-root, pra serve (written, not built here)
+├── Dockerfile                   python:3.11-slim, non-root, pra serve (written, not built in this environment)
 ├── pytest.ini
 ├── .github/workflows/ci.yml     pytest, demo, chaos, simulate, all without keys
 ├── app/
