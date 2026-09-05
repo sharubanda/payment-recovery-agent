@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# secrets: only .env.example is tracked
+.env
+.env.*
+!.env.example
+# local state
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+# build byproducts of pip install -e . (pyproject.toml)
+*.egg-info/
+build/
+# a recorded LLM cassette is a transcript of bank error text; keep it out of a public repo
+tests/fixtures/llm_cassettes/default.jsonl

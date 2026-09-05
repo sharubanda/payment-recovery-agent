@@ -1,0 +1,17 @@
+# Optional Postgres. SQLite is the default and needs nothing.
+#   docker compose up -d && export DATABASE_URL=postgresql+psycopg2://recovery:recovery@localhost:5432/recovery
+# (add `psycopg2-binary` to requirements.txt if you take this path — deliberately not pinned by default)
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: recovery
+      POSTGRES_PASSWORD: recovery
+      POSTGRES_DB: recovery
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U recovery"]
+      interval: 3s
+      timeout: 3s
+      retries: 15

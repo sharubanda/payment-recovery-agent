@@ -1,0 +1,80 @@
+{
+  "entity": "event",
+  "account_id": "acc_ChaosMerchant01",
+  "event": "subscription.pending",
+  "contains": [
+    "subscription",
+    "payment"
+  ],
+  "payload": {
+    "subscription": {
+      "entity": {
+        "id": "sub_RetryPending001",
+        "entity": "subscription",
+        "plan_id": "plan_MonthlyPro499",
+        "customer_id": "cust_Pending001",
+        "status": "pending",
+        "current_start": 1757030400,
+        "current_end": 1759622400,
+        "ended_at": null,
+        "quantity": 1,
+        "notes": {
+          "name": "Rahul Nair",
+          "merchant_id": "acc_ChaosMerchant01"
+        },
+        "charge_at": 1757030400,
+        "start_at": 1751328000,
+        "end_at": null,
+        "auth_attempts": 1,
+        "total_count": 12,
+        "paid_count": 4,
+        "customer_notify": true,
+        "created_at": 1751241600,
+        "expire_by": null,
+        "short_url": "https://rzp.io/i/SubPend001",
+        "has_scheduled_changes": false,
+        "change_scheduled_at": null,
+        "source": "api",
+        "remaining_count": 8
+      }
+    },
+    "payment": {
+      "entity": {
+        "id": "pay_SubPendingFail001",
+        "entity": "payment",
+        "amount": 29900,
+        "currency": "INR",
+        "status": "failed",
+        "order_id": "order_SubCycle005",
+        "invoice_id": "inv_SubCycle005",
+        "international": false,
+        "method": "emandate",
+        "amount_refunded": 0,
+        "refund_status": null,
+        "captured": false,
+        "description": "Monthly Basic, cycle 5",
+        "card_id": null,
+        "card": null,
+        "token_id": "token_PendingMandate001",
+        "bank": "HDFC",
+        "wallet": null,
+        "vpa": null,
+        "email": "rahul.nair@example.com",
+        "contact": "+919812345678",
+        "notes": [],
+        "fee": null,
+        "tax": null,
+        "error_code": "BAD_REQUEST_ERROR",
+        "error_description": "Insufficient funds in the account.",
+        "error_source": "customer",
+        "error_step": "payment_authorization",
+        "error_reason": "insufficient_funds",
+        "acquirer_data": {
+          "auth_code": null
+        },
+        "created_at": 1757289600
+      }
+    }
+  },
+  "created_at": 1757289605
+}

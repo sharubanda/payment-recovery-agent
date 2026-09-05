@@ -1,0 +1,47 @@
+{
+  "entity": "event",
+  "account_id": "acc_HZbGxYwNk4pQ2R",
+  "event": "payment.captured",
+  "contains": ["payment"],
+  "payload": {
+    "payment": {
+      "entity": {
+        "id": "pay_NfKr8mW4vQz3Xd",
+        "entity": "payment",
+        "amount": 249900,
+        "currency": "INR",
+        "status": "captured",
+        "order_id": "order_NfKp9wQ2sYd7Lm",
+        "invoice_id": null,
+        "international": false,
+        "method": "upi",
+        "amount_refunded": 0,
+        "refund_status": null,
+        "captured": true,
+        "description": "Annual plan - Acme Fitness",
+        "card_id": null,
+        "bank": null,
+        "wallet": null,
+        "vpa": "priya.sharma@okhdfcbank",
+        "email": "priya.sharma@example.com",
+        "contact": "+919876543210",
+        "notes": {
+          "name": "Priya Sharma",
+          "plan": "annual"
+        },
+        "fee": 5898,
+        "tax": 900,
+        "error_code": null,
+        "error_description": null,
+        "error_source": null,
+        "error_step": null,
+        "error_reason": null,
+        "acquirer_data": {
+          "rrn": "425017123456"
+        },
+        "created_at": 1788605100
+      }
+    }
+  },
+  "created_at": 1788605102
+}

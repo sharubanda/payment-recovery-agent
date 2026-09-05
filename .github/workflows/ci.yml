@@ -1,0 +1,53 @@
+# Runs exactly what a reviewer runs from a clean clone, with no keys, in the README's order:
+# demo twice (the second run must create nothing), chaos, simulate, then the test suite
+# with the demo's recovery.db still on disk.
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python -m app.main demo
+      - run: python -m app.main demo
+      - run: python scripts/chaos.py --all
+      - run: python scripts/simulate.py
+      - run: python scripts/eval_classify.py
+      - run: python -m app.main insights
+      - run: python -m app.main queue
+      - run: python -m pytest -q
+  # The same suite and demo against Postgres 16 (docker-compose.yml's database). Written to be
+  # correct but unexercised locally: the authoring environment had no Postgres.
+  postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: recovery
+          POSTGRES_PASSWORD: recovery
+          POSTGRES_DB: recovery
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U recovery"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql+psycopg2://recovery:recovery@localhost:5432/recovery
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e . psycopg2-binary pytest==9.1.1
+      - run: python -m pytest -q
+      - run: python -m app.main demo
+      - run: pra doctor

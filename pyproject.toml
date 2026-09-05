@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "payment-recovery-agent"
+version = "0.1.0"
+description = "Failed-payment recovery agent for Razorpay (test mode only): classify, decide, send a Payment Link, follow up, report."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+# The same pins as requirements.txt (the test suite runs against exactly these).
+dependencies = [
+    "sqlalchemy==2.0.52",
+    "anthropic==1.4.0",
+    "python-dotenv==1.2.3",
+    "pydantic==2.13.5",
+]
+
+[project.optional-dependencies]
+test = ["pytest==9.1.1"]
+postgres = ["psycopg2-binary"]
+
+[project.scripts]
+pra = "app.main:main"
+
+[tool.setuptools]
+packages = ["app"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+# merchants/_example.json ships as app/data/merchants_example.json (the merchants/ directory itself is
+# not a package); app/data/failure_cases.json is the few-shot fixture app/llm.py reads at import when
+# the repo copy (tests/fixtures/failure_cases.json) is not next to the installed package.
+app = ["data/*.json"]

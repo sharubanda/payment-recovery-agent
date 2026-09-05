@@ -1,0 +1,89 @@
+{
+  "entity": "event",
+  "account_id": "acc_HZbGxYwNk4pQ2R",
+  "event": "payment_link.paid",
+  "contains": ["payment_link", "order", "payment"],
+  "payload": {
+    "payment_link": {
+      "entity": {
+        "id": "plink_Ik78ZrxQCVebo8",
+        "entity": "payment_link",
+        "accept_partial": false,
+        "amount": 249900,
+        "amount_paid": 249900,
+        "cancelled_at": 0,
+        "created_at": 1788603276,
+        "currency": "INR",
+        "customer": {
+          "contact": "+919876543210",
+          "email": "priya.sharma@example.com",
+          "name": "Priya Sharma"
+        },
+        "description": "Retry payment for order order_NfKp9wQ2sYd7Lm",
+        "expire_by": 1788862476,
+        "expired_at": 0,
+        "first_min_partial_amount": 0,
+        "notes": {
+          "payment_id": "pay_NfKq2vT8xRb1Zc",
+          "order_id": "order_NfKp9wQ2sYd7Lm",
+          "failure_class": "INSUFFICIENT_FUNDS",
+          "retry_seq": "1",
+          "agent": "payment-recovery-agent"
+        },
+        "notify": {
+          "email": false,
+          "sms": false
+        },
+        "payments": [
+          {
+            "amount": 249900,
+            "created_at": 1788771795,
+            "method": "card",
+            "payment_id": "pay_NgRt5kD2wLx8Qa",
+            "status": "captured"
+          }
+        ],
+        "reference_id": "21d31059fd47dea46255bb9b176e3188c470ce25",
+        "reminder_enable": false,
+        "reminders": [],
+        "short_url": "https://rzp.io/i/fu5Q1YnE",
+        "status": "paid",
+        "updated_at": 1788771795,
+        "user_id": ""
+      }
+    },
+    "order": {
+      "entity": {
+        "id": "order_NgRt4pZ7cVm2Yb",
+        "entity": "order",
+        "amount": 249900,
+        "amount_paid": 249900,
+        "amount_due": 0,
+        "currency": "INR",
+        "receipt": null,
+        "status": "paid",
+        "attempts": 1,
+        "created_at": 1788771780
+      }
+    },
+    "payment": {
+      "entity": {
+        "id": "pay_NgRt5kD2wLx8Qa",
+        "entity": "payment",
+        "amount": 249900,
+        "currency": "INR",
+        "status": "captured",
+        "order_id": "order_NgRt4pZ7cVm2Yb",
+        "method": "card",
+        "captured": true,
+        "description": "Retry payment for order order_NfKp9wQ2sYd7Lm",
+        "email": "priya.sharma@example.com",
+        "contact": "+919876543210",
+        "error_code": null,
+        "error_description": null,
+        "created_at": 1788771795
+      }
+    }
+  },
+  "created_at": 1788771797
+}

@@ -1,0 +1,12 @@
+{
+  "_comment": "Documentation only: any file whose name starts with an underscore other than _default.json is skipped. Copy this to merchants/<merchant_id>.json (PaymentAttempt.merchant_id, e.g. merchant_acme.json), delete this _comment key (unknown keys are rejected), and keep only the fields you mean to change. Every field is optional. Schema and the invariants a file cannot break: docs/merchants.md.",
+  "classes": {
+    "INSUFFICIENT_FUNDS": {"delay_seconds": 86400, "max_attempts": 3, "nudge": false},
+    "ISSUER_DOWN": {"action": "human_queue"}
+  },
+  "nudge_language": "hi",
+  "max_contacts_per_week": 2,
+  "notify_customer": false,
+  "disabled_actions": ["token_retry"],
+  "human_queue_all": false
+}

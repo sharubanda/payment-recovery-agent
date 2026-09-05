@@ -1,0 +1,49 @@
+{
+  "entity": "event",
+  "account_id": "acc_HZbGxYwNk4pQ2R",
+  "event": "payment_link.expired",
+  "contains": ["payment_link"],
+  "payload": {
+    "payment_link": {
+      "entity": {
+        "id": "plink_Ik78ZrxQCVebo8",
+        "entity": "payment_link",
+        "accept_partial": false,
+        "amount": 249900,
+        "amount_paid": 0,
+        "cancelled_at": 0,
+        "created_at": 1788603276,
+        "currency": "INR",
+        "customer": {
+          "contact": "+919876543210",
+          "email": "priya.sharma@example.com",
+          "name": "Priya Sharma"
+        },
+        "description": "Retry payment for order order_NfKp9wQ2sYd7Lm",
+        "expire_by": 1788862476,
+        "expired_at": 1788862476,
+        "first_min_partial_amount": 0,
+        "notes": {
+          "payment_id": "pay_NfKq2vT8xRb1Zc",
+          "order_id": "order_NfKp9wQ2sYd7Lm",
+          "failure_class": "INSUFFICIENT_FUNDS",
+          "retry_seq": "1",
+          "agent": "payment-recovery-agent"
+        },
+        "notify": {
+          "email": false,
+          "sms": false
+        },
+        "payments": [],
+        "reference_id": "21d31059fd47dea46255bb9b176e3188c470ce25",
+        "reminder_enable": false,
+        "reminders": [],
+        "short_url": "https://rzp.io/i/fu5Q1YnE",
+        "status": "expired",
+        "updated_at": 1788862476,
+        "user_id": ""
+      }
+    }
+  },
+  "created_at": 1788862478
+}

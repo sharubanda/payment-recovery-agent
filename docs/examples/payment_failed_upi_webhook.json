@@ -1,0 +1,51 @@
+{
+  "entity": "event",
+  "account_id": "acc_HZbGxYwNk4pQ2R",
+  "event": "payment.failed",
+  "contains": ["payment"],
+  "payload": {
+    "payment": {
+      "entity": {
+        "id": "pay_NfLc8sW4mQz6Vt",
+        "entity": "payment",
+        "amount": 45900,
+        "currency": "INR",
+        "status": "failed",
+        "order_id": "order_NfLb2rK9xPw3Hn",
+        "invoice_id": null,
+        "international": false,
+        "method": "upi",
+        "amount_refunded": 0,
+        "refund_status": null,
+        "captured": false,
+        "description": "Monthly plan - Acme Fitness",
+        "card_id": null,
+        "bank": null,
+        "wallet": null,
+        "vpa": "divya.k@ybl",
+        "email": "divya.krishnan@example.com",
+        "contact": "+919812345678",
+        "notes": {
+          "customer_name": "Divya Krishnan"
+        },
+        "fee": null,
+        "tax": null,
+        "error_code": "BAD_REQUEST_ERROR",
+        "error_description": "Payment was unsuccessful as the UPI collect request expired. The customer did not approve the payment in the UPI app.",
+        "error_source": "customer",
+        "error_step": "payment_authentication",
+        "error_reason": "payment_timed_out",
+        "acquirer_data": {
+          "rrn": null,
+          "upi_transaction_id": null
+        },
+        "upi": {
+          "vpa": "divya.k@ybl",
+          "flow": "collect"
+        },
+        "created_at": 1788604927
+      }
+    }
+  },
+  "created_at": 1788604930
+}

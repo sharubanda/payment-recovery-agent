@@ -1,0 +1,59 @@
+{
+  "entity": "event",
+  "account_id": "acc_HZbGxYwNk4pQ2R",
+  "event": "payment.failed",
+  "contains": ["payment"],
+  "payload": {
+    "payment": {
+      "entity": {
+        "id": "pay_NfKq2vT8xRb1Zc",
+        "entity": "payment",
+        "amount": 249900,
+        "currency": "INR",
+        "status": "failed",
+        "order_id": "order_NfKp9wQ2sYd7Lm",
+        "invoice_id": null,
+        "international": false,
+        "method": "card",
+        "amount_refunded": 0,
+        "refund_status": null,
+        "captured": false,
+        "description": "Annual plan - Acme Fitness",
+        "card_id": "card_NfKq3Lm8vBx2Wq",
+        "card": {
+          "id": "card_NfKq3Lm8vBx2Wq",
+          "entity": "card",
+          "name": "Priya Sharma",
+          "last4": "1111",
+          "network": "Visa",
+          "type": "debit",
+          "issuer": "HDFC",
+          "international": false,
+          "emi": false,
+          "sub_type": "consumer"
+        },
+        "bank": null,
+        "wallet": null,
+        "vpa": null,
+        "email": "priya.sharma@example.com",
+        "contact": "+919876543210",
+        "notes": {
+          "name": "Priya Sharma",
+          "plan": "annual"
+        },
+        "fee": null,
+        "tax": null,
+        "error_code": "BAD_REQUEST_ERROR",
+        "error_description": "Your payment could not be completed due to insufficient funds in the account. Try again with another account.",
+        "error_source": "customer",
+        "error_step": "payment_authorization",
+        "error_reason": "payment_failed",
+        "acquirer_data": {
+          "auth_code": null
+        },
+        "created_at": 1788603272
+      }
+    }
+  },
+  "created_at": 1788603275
+}

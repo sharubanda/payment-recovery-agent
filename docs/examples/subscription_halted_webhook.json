@@ -1,0 +1,85 @@
+{
+  "entity": "event",
+  "account_id": "acc_ChaosMerchant01",
+  "event": "subscription.halted",
+  "contains": [
+    "subscription",
+    "payment"
+  ],
+  "payload": {
+    "subscription": {
+      "entity": {
+        "id": "sub_ReAuthHalted001",
+        "entity": "subscription",
+        "plan_id": "plan_MonthlyPro499",
+        "customer_id": "cust_Halted001",
+        "status": "halted",
+        "current_start": 1757030400,
+        "current_end": 1759622400,
+        "ended_at": null,
+        "quantity": 1,
+        "notes": {
+          "name": "Meera Iyer",
+          "merchant_id": "acc_ChaosMerchant01"
+        },
+        "charge_at": 1757030400,
+        "start_at": 1751328000,
+        "end_at": null,
+        "auth_attempts": 1,
+        "total_count": 12,
+        "paid_count": 2,
+        "customer_notify": true,
+        "created_at": 1751241600,
+        "expire_by": null,
+        "short_url": "https://rzp.io/i/SubReAuth1",
+        "has_scheduled_changes": false,
+        "change_scheduled_at": null,
+        "source": "api",
+        "remaining_count": 10
+      }
+    },
+    "payment": {
+      "entity": {
+        "id": "pay_SubHaltedFail001",
+        "entity": "payment",
+        "amount": 49900,
+        "currency": "INR",
+        "status": "failed",
+        "order_id": "order_SubCycle003",
+        "invoice_id": "inv_SubCycle003",
+        "international": false,
+        "method": "card",
+        "amount_refunded": 0,
+        "refund_status": null,
+        "captured": false,
+        "description": "Monthly Pro, cycle 3",
+        "card_id": "card_HaltedCard001",
+        "card": {
+          "name": "Meera Iyer",
+          "last4": "4242",
+          "network": "Visa",
+          "type": "credit"
+        },
+        "token_id": "token_HaltedMandate001",
+        "bank": null,
+        "wallet": null,
+        "vpa": null,
+        "email": "meera.iyer@example.com",
+        "contact": "+919876543210",
+        "notes": [],
+        "fee": null,
+        "tax": null,
+        "error_code": "BAD_REQUEST_ERROR",
+        "error_description": "Your card has expired. Please try another card.",
+        "error_source": "customer",
+        "error_step": "payment_authorization",
+        "error_reason": "card_expired",
+        "acquirer_data": {
+          "auth_code": null
+        },
+        "created_at": 1757289600
+      }
+    }
+  },
+  "created_at": 1757289605
+}

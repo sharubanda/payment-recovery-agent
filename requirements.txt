@@ -1,0 +1,6 @@
+# Pinned to the exact versions the test suite runs against.
+sqlalchemy==2.0.52
+anthropic==1.4.0
+python-dotenv==1.2.3
+pydantic==2.13.5
+pytest==9.1.1
